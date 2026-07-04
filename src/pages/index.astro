@@ -106,6 +106,33 @@ const description =
 						height="830"
 					/>
 				</div>
+
+				<div class="video-grid">
+					<div class="video-card">
+						<div class="video-embed">
+							<iframe
+								src="https://www.youtube-nocookie.com/embed/ZqW_nLrWJVA"
+								title="Shadow — 忘れないAI環境"
+								loading="lazy"
+								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+								allowfullscreen
+							></iframe>
+						</div>
+						<p class="video-caption">記憶編 — セッションをまたいで文脈が続く様子</p>
+					</div>
+					<div class="video-card">
+						<div class="video-embed">
+							<iframe
+								src="https://www.youtube-nocookie.com/embed/PGTC9SDfYWs"
+								title="Shadow — 散らからないAI環境"
+								loading="lazy"
+								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+								allowfullscreen
+							></iframe>
+						</div>
+						<p class="video-caption">作業空間編 — workspace モデルでの整理</p>
+					</div>
+				</div>
 			</section>
 
 			<section id="tech" class="section">
@@ -366,6 +393,34 @@ const description =
 		display: block;
 		width: 100%;
 		height: auto;
+	}
+
+	.video-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+		gap: 1.5rem;
+		margin-top: 2rem;
+		max-width: 1080px;
+	}
+	.video-embed {
+		position: relative;
+		aspect-ratio: 16 / 9;
+		border-radius: 14px;
+		overflow: hidden;
+		border: 1px solid rgba(56, 219, 230, 0.2);
+		box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+	}
+	.video-embed iframe {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		border: 0;
+	}
+	.video-caption {
+		margin: 0.7rem 0 0;
+		color: #9db0c3;
+		font-size: 0.9rem;
 	}
 
 	.repo-link {
