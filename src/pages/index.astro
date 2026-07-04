@@ -60,10 +60,11 @@ const description =
 			<section id="concept" class="section">
 				<h2>セッションが終わっても、文脈は終わらない</h2>
 				<p class="lead">
-					AIコーディングエージェントは優秀でも、対話を閉じれば記憶も消える。次に開いた瞬間、
-					また一から状況を説明し直すことになる。Shadow は、その手前で文脈を拾い上げておく
-					<strong>受け皿（receptacle）</strong>——本物の Claude Code を動かしながら、裏側で
-					セッションの系譜・凍結された引き継ぎメモ・トピックごとの記憶を積み上げていく。
+					Claude Code 自体にも resume はあるが、それは膨らみきったコンテキストをそのまま
+					引き継ぐだけ——要点を残して新鮮な状態から続きに入れるわけではない。Shadow は、
+					その手前で文脈を拾い上げておく<strong>受け皿（receptacle）</strong>——本物の
+					Claude Code を動かしながら、裏側でセッションの系譜・凍結された引き継ぎメモ・
+					トピックごとの記憶を積み上げていく。
 				</p>
 				<div class="grid-3">
 					<div class="card">
@@ -83,8 +84,8 @@ const description =
 					<div class="card">
 						<h3>デスクトップで完結</h3>
 						<p>
-							エクスプローラー・プレビュー・センター・パネルの4ペインが1つのアプリに収まる。
-							ウィンドウを行き来する必要がない。
+							エクスプローラー・プレビュー・センターに加え、CLIペインは必要なだけ増やせる
+							（10枚でも並べられる）。エディタも内蔵。ウィンドウを行き来する必要がない。
 						</p>
 					</div>
 				</div>
@@ -92,9 +93,18 @@ const description =
 
 			<section id="demo" class="section alt">
 				<h2>実際の画面</h2>
-				<p class="lead">準備中 — スクリーンショットとデモ動画をここに追加していきます。</p>
-				<div class="demo-placeholder" aria-hidden="true">
-					<span>screenshot coming soon</span>
+				<p class="lead">
+					エクスプローラー・センターの Claude Code・任意の数のCLIペインが1つのウィンドウに
+					収まっている。ペインは浮動配置で自由に増減できる。
+				</p>
+				<div class="demo-shot">
+					<img
+						src={`${base}demo-screenshot-1.png`}
+						alt="Shadow デスクトップアプリのスクリーンショット — エクスプローラー、Claude Code のセンターペイン、広報用エージェントペインが並ぶ様子"
+						loading="lazy"
+						width="1568"
+						height="830"
+					/>
 				</div>
 			</section>
 
@@ -119,7 +129,7 @@ const description =
 						<p>
 							Tauri v2 + ConPTY（portable-pty）+ xterm.js。本物の <code>claude</code> を
 							Windows の ConPTY 上でホストし、bytes を xterm.js にそのまま流す。
-							VS Code ライクな4ペイン構成。
+							ペインは浮動ウィンドウ管理で、CLIペイン（Grok/Codex/Gemini等）は台数無制限。
 						</p>
 					</div>
 				</div>
@@ -344,18 +354,18 @@ const description =
 		line-height: 1.75;
 	}
 
-	.demo-placeholder {
+	.demo-shot {
 		margin-top: 2.5rem;
-		aspect-ratio: 16 / 9;
-		max-width: 900px;
+		max-width: 1080px;
 		border-radius: 16px;
-		border: 1px dashed rgba(56, 219, 230, 0.3);
-		background: rgba(56, 219, 230, 0.04);
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		color: #6d8494;
-		font-size: 0.95rem;
+		border: 1px solid rgba(56, 219, 230, 0.25);
+		box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(56, 219, 230, 0.08);
+		overflow: hidden;
+	}
+	.demo-shot img {
+		display: block;
+		width: 100%;
+		height: auto;
 	}
 
 	.repo-link {
