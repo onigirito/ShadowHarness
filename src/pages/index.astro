@@ -107,6 +107,15 @@ const description =
 					/>
 				</div>
 
+				<div class="demo-shot">
+					<video controls muted playsinline width="878" height="830">
+						<source src={`${base}demo-editor-highlight.mp4`} type="video/mp4" />
+					</video>
+					<p class="video-caption">
+						PREVIEW ペインの実演 — ドキュメント表示・画像プレビュー・編集＋保存・レンダー表示
+					</p>
+				</div>
+
 				<div class="video-grid">
 					<div class="video-card">
 						<div class="video-embed">
@@ -389,7 +398,8 @@ const description =
 		box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(56, 219, 230, 0.08);
 		overflow: hidden;
 	}
-	.demo-shot img {
+	.demo-shot img,
+	.demo-shot video {
 		display: block;
 		width: 100%;
 		height: auto;
