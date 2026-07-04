@@ -1,14 +1,15 @@
 ---
-import '../styles/site.css';
+import '../../styles/site.css';
 
 const base = import.meta.env.BASE_URL;
 const siteUrl = 'https://onigirito.github.io/ShadowHarness/';
-const title = 'Shadow — 忘れないAI環境';
+const pageUrl = `${siteUrl}en/`;
+const title = 'Shadow — The AI environment that never forgets';
 const description =
-  'Shadow は Claude Code のためのデスクトップシェル＋永続コンテキスト基盤。セッションが終わっても、文脈は終わらない。';
+  'Shadow is a desktop shell + persistent context layer for Claude Code. The session may end — the context never does.';
 ---
 
-<html lang="ja">
+<html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -17,15 +18,15 @@ const description =
 
 		<title>{title}</title>
 		<meta name="description" content={description} />
-		<link rel="canonical" href={siteUrl} />
+		<link rel="canonical" href={pageUrl} />
 		<link rel="alternate" hreflang="ja" href={siteUrl} />
-		<link rel="alternate" hreflang="en" href={`${siteUrl}en/`} />
+		<link rel="alternate" hreflang="en" href={pageUrl} />
 		<link rel="alternate" hreflang="x-default" href={siteUrl} />
 
 		<meta property="og:type" content="website" />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
-		<meta property="og:url" content={siteUrl} />
+		<meta property="og:url" content={pageUrl} />
 		<meta property="og:image" content={`${siteUrl}og-image.png`} />
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:site" content="@ShadowHarness" />
@@ -42,7 +43,7 @@ const description =
 				applicationCategory: 'DeveloperApplication',
 				operatingSystem: 'Windows',
 				description,
-				url: siteUrl,
+				url: pageUrl,
 				image: `${siteUrl}og-image.png`,
 				author: { '@type': 'Person', name: 'onigirito' },
 			})}
@@ -50,14 +51,14 @@ const description =
 	</head>
 	<body>
 		<header class="site-header">
-			<a class="brand" href={base}>SHADOW</a>
+			<a class="brand" href={`${base}en/`}>SHADOW</a>
 			<nav>
-				<a href="#concept">コンセプト</a>
-				<a href="#demo">デモ</a>
-				<a href="#tech">技術詳細</a>
+				<a href="#concept">Concept</a>
+				<a href="#demo">Demo</a>
+				<a href="#tech">Under the hood</a>
 			</nav>
 			<span class="header-links">
-				<a class="lang-link" href={`${base}en/`}>EN</a>
+				<a class="lang-link" href={base}>日本語</a>
 				<a class="x-link" href="https://x.com/ShadowHarness" target="_blank" rel="noopener">
 					𝕏 @ShadowHarness
 				</a>
@@ -68,62 +69,62 @@ const description =
 			<section class="hero">
 				<div class="ring" aria-hidden="true"></div>
 				<h1 class="wordmark">SHADOW</h1>
-				<p class="tagline"><span class="ac">忘れない</span>AI環境。</p>
+				<p class="tagline">The AI environment that <span class="ac">never forgets</span>.</p>
 				<p class="sub">Persistent memory for AI coding agents.</p>
 				<div class="cta-row">
 					<a class="cta primary" href="https://github.com/onigirito/ShadowHarness" target="_blank" rel="noopener">
-						GitHubで見る
+						View on GitHub
 					</a>
 					<a class="cta ghost" href="https://x.com/ShadowHarness" target="_blank" rel="noopener">
-						Xでフォロー
+						Follow on X
 					</a>
 				</div>
 			</section>
 
 			<section id="concept" class="section">
-				<h2>セッションが終わっても、文脈は終わらない</h2>
+				<h2>The session may end. The context doesn't.</h2>
 				<p class="lead">
-					Claude Code 自体にも resume はあるが、それは膨らみきったコンテキストをそのまま
-					引き継ぐだけ——要点を残して新鮮な状態から続きに入れるわけではない。Shadow は、
-					その手前で文脈を拾い上げておく<strong>受け皿（receptacle）</strong>——本物の
-					Claude Code を動かしながら、裏側でセッションの系譜・凍結された引き継ぎメモ・
-					トピックごとの記憶を積み上げていく。
+					Claude Code does have resume — but resume drags the whole bloated context forward.
+					It doesn't distill the essentials and let you continue fresh. Shadow is the
+					<strong>receptacle</strong> that catches your context before it's lost: it hosts the
+					real Claude Code while quietly building up session lineage, frozen handoff notes,
+					and per-topic memory behind the scenes.
 				</p>
 				<div class="grid-3">
 					<div class="card">
-						<h3>記憶が続く</h3>
+						<h3>Memory that persists</h3>
 						<p>
-							セッションをまたいでも、直前までの文脈とトピックノートが自動で引き継がれる。
-							リセットしても、続きから始められる。
+							Context and topic notes carry over across sessions automatically. Reset the
+							session — pick up right where you left off.
 						</p>
 					</div>
 					<div class="card">
-						<h3>本物の Claude Code</h3>
+						<h3>The real Claude Code</h3>
 						<p>
-							ヘッドレス化も簡略化もしない。実際にインタラクティブな <code>claude</code> CLI を
-							そのままホストするから、機能もパリティも損なわれない。
+							No headless wrapper, no watered-down clone. Shadow hosts the actual interactive
+							<code>claude</code> CLI, so nothing is lost in translation.
 						</p>
 					</div>
 					<div class="card">
-						<h3>デスクトップで完結</h3>
+						<h3>One desktop, everything</h3>
 						<p>
-							エクスプローラー・プレビュー・センターに加え、CLIペインは必要なだけ増やせる
-							（10枚でも並べられる）。エディタも内蔵。ウィンドウを行き来する必要がない。
+							Explorer, preview, and the center pane — plus as many CLI panes as you want
+							(stack ten if you like). A built-in editor too. No more window juggling.
 						</p>
 					</div>
 				</div>
 			</section>
 
 			<section id="demo" class="section alt">
-				<h2>実際の画面</h2>
+				<h2>See it in action</h2>
 				<p class="lead">
-					エクスプローラー・センターの Claude Code・任意の数のCLIペインが1つのウィンドウに
-					収まっている。ペインは浮動配置で自由に増減できる。
+					Explorer, the center Claude Code pane, and any number of CLI panes in a single
+					window. Panes float freely — add or remove them at will.
 				</p>
 				<div class="demo-shot">
 					<img
 						src={`${base}demo-screenshot-1.png`}
-						alt="Shadow デスクトップアプリのスクリーンショット — エクスプローラー、Claude Code のセンターペイン、広報用エージェントペインが並ぶ様子"
+						alt="Screenshot of the Shadow desktop app — explorer, the center Claude Code pane, and an agent pane side by side"
 						loading="lazy"
 						width="1568"
 						height="830"
@@ -135,8 +136,8 @@ const description =
 						<source src={`${base}demo-editor-highlight.mp4`} type="video/mp4" />
 					</video>
 					<p class="video-caption">
-						PREVIEW ペイン 32秒デモ（ナレーション付き）— ドキュメント表示・画像プレビュー・
-						編集＋AIコード補完・レンダー表示
+						32-second PREVIEW pane demo (Japanese narration) — document view, image preview,
+						editing with AI code completion, and instant rendering
 					</p>
 				</div>
 
@@ -144,58 +145,58 @@ const description =
 					<div class="video-card">
 						<div class="video-embed">
 							<iframe
-								src="https://www.youtube-nocookie.com/embed/ZqW_nLrWJVA"
-								title="Shadow — 忘れないAI環境"
+								src="https://www.youtube-nocookie.com/embed/z0D8-rqVunc"
+								title="Shadow — The AI environment that never forgets"
 								loading="lazy"
 								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 								allowfullscreen
 							></iframe>
 						</div>
-						<p class="video-caption">記憶編 — セッションをまたいで文脈が続く様子</p>
+						<p class="video-caption">Memory — context that survives across sessions</p>
 					</div>
 					<div class="video-card">
 						<div class="video-embed">
 							<iframe
-								src="https://www.youtube-nocookie.com/embed/PGTC9SDfYWs"
-								title="Shadow — 散らからないAI環境"
+								src="https://www.youtube-nocookie.com/embed/h-wGvXwAU6g"
+								title="Shadow — The AI workspace that never scatters"
 								loading="lazy"
 								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 								allowfullscreen
 							></iframe>
 						</div>
-						<p class="video-caption">作業空間編 — workspace モデルでの整理</p>
+						<p class="video-caption">Workspace — everything organized under one model</p>
 					</div>
 				</div>
 			</section>
 
 			<section id="tech" class="section">
-				<h2>アーキテクチャ</h2>
+				<h2>Architecture</h2>
 				<p class="lead">
-					Shadow は2層構造。<code>harness/</code> が永続コンテキストサービス（L2）、
-					<code>desktop/</code> が実際に操作するデスクトップシェル（L4）。
+					Shadow is two layers: <code>harness/</code> is the persistent context service (L2),
+					and <code>desktop/</code> is the shell you actually work in (L4).
 				</p>
 				<div class="grid-2">
 					<div class="card">
 						<h3>L2 — Context Services</h3>
 						<p>
-							<code>sessions</code>（系譜・whoami）／ <code>handoff</code>（凍結引き継ぎ）／
-							<code>distill</code>（トピックノート）／ <code>notes</code>（想起）。
-							センター起動のたびに立ち上がり、セッションの transcript を単一のソースとして
-							扱う。
+							<code>sessions</code> (lineage / whoami), <code>handoff</code> (frozen handoffs),
+							<code>distill</code> (topic notes), and <code>notes</code> (recall). They spin up
+							on every center spawn, treating the session transcript as the single source of
+							truth.
 						</p>
 					</div>
 					<div class="card">
 						<h3>L4 — Desktop Shell</h3>
 						<p>
-							Tauri v2 + ConPTY（portable-pty）+ xterm.js。本物の <code>claude</code> を
-							Windows の ConPTY 上でホストし、bytes を xterm.js にそのまま流す。
-							ペインは浮動ウィンドウ管理で、CLIペイン（Grok/Codex/Gemini等）は台数無制限。
+							Tauri v2 + ConPTY (portable-pty) + xterm.js. The real <code>claude</code> runs
+							in a Windows ConPTY with its bytes piped straight to xterm.js. Panes are managed
+							as floating windows — CLI panes (Grok, Codex, Gemini, …) are unlimited.
 						</p>
 					</div>
 				</div>
 				<p class="repo-link">
 					<a href="https://github.com/onigirito/ShadowHarness" target="_blank" rel="noopener">
-						→ GitHub でソースを見る
+						→ Browse the source on GitHub
 					</a>
 				</p>
 			</section>
