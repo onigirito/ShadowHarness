@@ -54,7 +54,7 @@ const description =
 			<nav>
 				<a href="#concept">コンセプト</a>
 				<a href="#demo">デモ</a>
-				<a href="#tech">技術詳細</a>
+				<a href="#tech">仕組み</a>
 			</nav>
 			<span class="header-links">
 				<a class="lang-link" href={`${base}en/`}>EN</a>
@@ -158,34 +158,31 @@ const description =
 				</div>
 			</section>
 
-			<section id="tech" class="section">
-				<h2>アーキテクチャ</h2>
+						<section id="tech" class="section">
+				<h2>仕組み</h2>
 				<p class="lead">
-					Shadow は2層構造。<code>harness/</code> が永続コンテキストサービス（L2）、
-					<code>desktop/</code> が実際に操作するデスクトップシェル（L4）。
+					コンテキストをモデルの中だけに抱えさせず、ディスク上に永続化する。だから
+					セッションが終わっても、作業の文脈は終わらない。
 				</p>
 				<div class="grid-2">
 					<div class="card">
-						<h3>L2 — Context Services</h3>
+						<h3>途切れない記憶</h3>
 						<p>
-							<code>sessions</code>（系譜・whoami）／ <code>handoff</code>（凍結引き継ぎ）／
-							<code>distill</code>（トピックノート）／ <code>notes</code>（想起）。
-							センター起動のたびに立ち上がり、セッションの transcript を単一のソースとして
-							扱う。
+							会話もトピックもセッションを越えて自動で受け継がれる。リセットしても、
+							直前の状況・要点・出典をまとめて引き継ぎ、続きから再開できる。
 						</p>
 					</div>
 					<div class="card">
-						<h3>L4 — Desktop Shell</h3>
+						<h3>本物のClaude、そのまま</h3>
 						<p>
-							Tauri v2 + ConPTY（portable-pty）+ xterm.js。本物の <code>claude</code> を
-							Windows の ConPTY 上でホストし、bytes を xterm.js にそのまま流す。
-							ペインは浮動ウィンドウ管理で、CLIペイン（Grok/Codex/Gemini等）は台数無制限。
+							ラッパー越しの劣化コピーではなく、本物の Claude Code をネイティブな
+							デスクトップアプリの中でそのまま動かす。複数のAI CLIを1画面に並べて同時に使える。
 						</p>
 					</div>
 				</div>
 				<p class="repo-link">
 					<a href="https://github.com/onigirito/ShadowHarness" target="_blank" rel="noopener">
-						→ GitHub でソースを見る
+						→ GitHub
 					</a>
 				</p>
 			</section>
