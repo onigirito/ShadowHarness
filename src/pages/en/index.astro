@@ -6,7 +6,7 @@ const siteUrl = 'https://onigirito.github.io/ShadowHarness/';
 const pageUrl = `${siteUrl}en/`;
 const title = 'Shadow — The AI environment that never forgets';
 const description =
-  'Shadow is a desktop shell + persistent context layer for Claude Code. The session may end — the context never does.';
+  'Shadow is a desktop app for Claude Code. The session may end — the context never does.';
 ---
 
 <html lang="en">
@@ -54,8 +54,10 @@ const description =
 			<a class="brand" href={`${base}en/`}>SHADOW</a>
 			<nav>
 				<a href="#concept">Concept</a>
+				<a href="#memory">Memory</a>
+				<a href="#editor">Editor</a>
+				<a href="#security">Trust</a>
 				<a href="#demo">Demo</a>
-				<a href="#tech">How it works</a>
 			</nav>
 			<span class="header-links">
 				<a class="lang-link" href={base}>日本語</a>
@@ -84,11 +86,11 @@ const description =
 			<section id="concept" class="section">
 				<h2>The session may end. The context doesn't.</h2>
 				<p class="lead">
-					Claude Code does have resume — but resume drags the whole bloated context forward.
-					It doesn't distill the essentials and let you continue fresh. Shadow is the
-					<strong>receptacle</strong> that catches your context before it's lost: it hosts the
-					real Claude Code while quietly building up session lineage, frozen handoff notes,
-					and per-topic memory behind the scenes.
+					Claude Code can resume a session — but resume drags the whole bloated
+					conversation forward. It doesn't carry just the essentials and let you continue
+					fresh. Shadow is <strong>a home for your context</strong>: it hosts the real
+					Claude Code while quietly keeping a record of every conversation and organizing
+					it by topic behind the scenes.
 				</p>
 				<div class="grid-3">
 					<div class="card">
@@ -101,15 +103,128 @@ const description =
 					<div class="card">
 						<h3>The real Claude Code</h3>
 						<p>
-							No headless wrapper, no watered-down clone. Shadow hosts the actual interactive
-							<code>claude</code> CLI, so nothing is lost in translation.
+							Nothing rebuilt, nothing stripped down. Shadow runs the genuine
+							<code>claude</code> right inside the window, so every feature works
+							exactly as it does upstream.
 						</p>
 					</div>
 					<div class="card">
 						<h3>One desktop, everything</h3>
 						<p>
-							Explorer, preview, and the center pane — plus as many CLI panes as you want
+							A file explorer, a preview pane, and as many AI panes as you want
 							(stack ten if you like). A built-in editor too. No more window juggling.
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<section id="memory" class="section alt">
+				<h2>How the memory works</h2>
+				<p class="lead">
+					Left alone, a conversation with an AI vanishes the moment you close the window.
+					Shadow records every one of them, quietly organizes them on the server side,
+					and turns them into notes — one per topic.
+				</p>
+				<div class="grid-3">
+					<div class="card">
+						<h3>Everything is kept</h3>
+						<p>
+							Not just Claude Code — conversations in the other AI panes you open are
+							recorded the same way. What was said, and in which pane, stays traceable.
+						</p>
+					</div>
+					<div class="card">
+						<h3>The server does the tidying</h3>
+						<p>
+							Organizing and topic-tagging happen on the server, not on your machine.
+							The master copy of the notes lives there — nothing piles up on your device.
+						</p>
+					</div>
+					<div class="card">
+						<h3>Continue where you left off</h3>
+						<p>
+							Open a new session and the recent state and related topics are laid out
+							for you automatically. "Continue from before" just works.
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<section id="editor" class="section">
+				<h2>An editor, right there</h2>
+				<p class="lead">
+					View a file, fix it, check how it renders — all inside one window. Move back
+					and forth between what you delegate to the AI and what you write yourself.
+				</p>
+				<div class="grid-3">
+					<div class="card">
+						<h3>Three modes</h3>
+						<p>
+							View, edit, and rendered preview. Markdown and HTML render live
+							as you type.
+						</p>
+					</div>
+					<div class="card">
+						<h3>AI completion built in</h3>
+						<p>
+							The AI faintly suggests the rest of the line you're writing. Press Tab
+							to accept — or just keep typing and ignore it.
+						</p>
+					</div>
+					<div class="card">
+						<h3>Bring your own engine</h3>
+						<p>
+							The completion model is swappable: a small local AI running on the
+							server, or any major cloud model — one setting away.
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<section id="watch" class="section alt">
+				<h2>Step away — it doesn't stop</h2>
+				<p class="lead">
+					Long jobs outlive your time at the desk. Shadow includes a way to check on
+					your work from your phone and send a quick instruction back — so an urgent
+					confirmation or approval never leaves the AI stuck waiting.
+				</p>
+			</section>
+
+			<section id="security" class="section">
+				<h2>Privacy and security</h2>
+				<p class="lead">
+					Conversation logs with an AI almost certainly contain personal information
+					and the substance of your work. Shadow is designed on that assumption.
+				</p>
+				<div class="grid-2">
+					<div class="card">
+						<h3>Assumed sensitive</h3>
+						<p>
+							Logs are treated as containing secrets — because they do. How they are
+							stored and organized starts from that premise.
+						</p>
+					</div>
+					<div class="card">
+						<h3>Encrypted in transit</h3>
+						<p>
+							Everything between your machine and the server travels only over an
+							encrypted channel (SSH). Your records never cross the network in the clear.
+						</p>
+					</div>
+					<div class="card">
+						<h3>Never used for training</h3>
+						<p>
+							Server-side processing runs in forms where your data is not used to train
+							anyone's AI — API plans with training opted out, combined with a local AI
+							running inside the server.
+						</p>
+					</div>
+					<div class="card">
+						<h3>Moving further inside</h3>
+						<p>
+							The plan is to fully replace both the organizing and the control layer
+							with local AI inside the server — step by step, toward keeping your
+							data from ever leaving.
 						</p>
 					</div>
 				</div>
@@ -118,13 +233,13 @@ const description =
 			<section id="demo" class="section alt">
 				<h2>See it in action</h2>
 				<p class="lead">
-					Explorer, the center Claude Code pane, and any number of CLI panes in a single
-					window. Panes float freely — add or remove them at will.
+					A file explorer, Claude Code, and a row of AI panes in a single window.
+					Panes float freely — add or remove them at will.
 				</p>
 				<div class="demo-shot">
 					<img
 						src={`${base}demo-screenshot-1.png`}
-						alt="Screenshot of the Shadow desktop app — explorer, the center Claude Code pane, and an agent pane side by side"
+						alt="Screenshot of the Shadow desktop app — the file explorer and several AI panes side by side"
 						loading="lazy"
 						width="1568"
 						height="830"
@@ -154,32 +269,7 @@ const description =
 								allowfullscreen
 							></iframe>
 						</div>
-						<p class="video-caption">Workspace — everything organized under one model</p>
-					</div>
-				</div>
-			</section>
-
-						<section id="tech" class="section">
-				<h2>How it works</h2>
-				<p class="lead">
-					Shadow keeps your context out of the model and in durable storage —
-					so a session can end without your work ending.
-				</p>
-				<div class="grid-2">
-					<div class="card">
-						<h3>Memory that persists</h3>
-						<p>
-							Conversations and topic notes carry across sessions automatically. Reset,
-							and the next session picks up your recent state, the essentials, and their
-							sources — so you continue where you left off.
-						</p>
-					</div>
-					<div class="card">
-						<h3>The real Claude, natively</h3>
-						<p>
-							Not a wrapper or a reimplementation — the genuine Claude Code, running inside
-							a native desktop app. Run several AI CLIs side by side on one screen.
-						</p>
+						<p class="video-caption">Workspace — everything tidied, nothing scattered</p>
 					</div>
 				</div>
 				<p class="repo-link">

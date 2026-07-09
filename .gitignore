@@ -3,6 +3,10 @@ dist/
 # generated types
 .astro/
 
+# internal working docs (never publish)
+CLAUDE.md
+AGENTS.md
+
 # dependencies
 node_modules/
 

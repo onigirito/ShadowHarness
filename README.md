@@ -1,26 +1,25 @@
-# Shadow — Landing Page
+# Shadow — 忘れないAI環境
 
-[onigirito.github.io/ShadowHarness](https://onigirito.github.io/ShadowHarness/) — Shadow（デスクトップシェル＋永続コンテキスト基盤）の宣伝ページ。
+**The AI environment that never forgets.**
 
-Astro (static) + GitHub Pages。`main` に push すると GitHub Actions が自動でビルド・デプロイする
-（`.github/workflows/deploy.yml`）。
+Shadow は Claude Code のためのデスクトップアプリ。本物の `claude` をそのまま画面の中で動かしながら、
+会話の記録を裏で丁寧に残し、話題ごとに整理していく——だから、セッションが終わっても文脈は終わらない。
+エクスプローラー・エディタ・複数のAIペインが1つのウィンドウに収まり、リセットしても続きから始められる。
 
-## 開発
+Shadow is a desktop app for Claude Code: it hosts the real `claude` while quietly keeping and
+organizing every conversation by topic — so the session may end, but the context never does.
+
+![Shadow デスクトップアプリのスクリーンショット](public/demo-screenshot-1.png)
+
+- **サイト / Website**: https://onigirito.github.io/ShadowHarness/ （[English](https://onigirito.github.io/ShadowHarness/en/)）
+- **X**: [@ShadowHarness](https://x.com/ShadowHarness)
+
+---
+
+このリポジトリは公式サイトのソースです。This repository holds the source of the official website.
 
 ```sh
 npm install
-npm run dev       # http://localhost:4321
-npm run build     # ./dist に静的ビルド
-npm run preview   # ビルド結果をローカルでプレビュー
+npm run dev     # ローカルプレビュー / local preview
+npm run build   # 静的ビルド / static build
 ```
-
-## 構成
-
-```
-src/pages/index.astro   — 全ページ（ヒーロー / コンセプト / デモ / 技術詳細）
-public/                 — 画像・動画・favicon・robots.txt
-astro.config.mjs        — site/base（GitHub Pages 用）＋ sitemap integration
-.github/workflows/      — Pages への自動デプロイ
-```
-
-ブランドカラー・フォントは `../shadow-video/brand/` の広報素材（X/YouTube バナー）に合わせている。
